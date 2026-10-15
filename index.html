@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UPS Smart Collections Platform</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#f4f6f9;
+}
+
+header{
+background:#351c75;
+color:white;
+padding:20px;
+text-align:center;
+}
+
+nav{
+display:flex;
+justify-content:center;
+gap:10px;
+padding:15px;
+background:white;
+box-shadow:0 2px 5px rgba(0,0,0,0.1);
+flex-wrap:wrap;
+}
+
+nav button{
+padding:12px 20px;
+border:none;
+background:#ffb300;
+color:#000;
+font-weight:bold;
+cursor:pointer;
+border-radius:6px;
+}
+
+nav button:hover{
+background:#ffc933;
+}
+
+.container{
+padding:20px;
+max-width:1200px;
+margin:auto;
+}
+
+.screen{
+display:none;
+}
+
+.active{
+display:block;
+}
+
+.card-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+margin-top:20px;
+}
+
+.card{
+background:white;
+padding:20px;
+border-radius:10px;
+box-shadow:0 2px 10px rgba(0,0,0,0.1);
+text-align:center;
+}
+
+.card h3{
+color:#666;
+margin-bottom:10px;
+}
+
+.value{
+font-size:30px;
+font-weight:bold;
+color:#351c75;
+}
+
+.customer-box{
+background:white;
+padding:20px;
+border-radius:10px;
+box-shadow:0 2px 10px rgba(0,0,0,0.1);
+margin-top:20px;
+}
+
+.customer-box p{
+margin:10px 0;
+}
+
+.risk{
+font-size:28px;
+color:red;
+font-weight:bold;
+}
+
+.actions{
+display:flex;
+flex-wrap:wrap;
+gap:15px;
+margin-top:20px;
+}
+
+.actions button{
+padding:15px;
+border:none;
+border-radius:6px;
+background:#351c75;
+color:white;
+cursor:pointer;
+}
+
+.actions button:hover{
+background:#4d2da0;
+}
+
+.chart{
+background:white;
+padding:20px;
+border-radius:10px;
+margin-top:20px;
+box-shadow:0 2px 10px rgba(0,0,0,0.1);
+}
+
+.bar{
+height:30px;
+margin-bottom:15px;
+color:white;
+padding-left:10px;
+line-height:30px;
+font-weight:bold;
+border-radius:5px;
+}
+
+.bar1{
+width:75%;
+background:#4caf50;
+}
+
+.bar2{
+width:50%;
+background:#2196f3;
+}
+
+.bar3{
+width:90%;
+background:#ff5722;
+}
+
+footer{
+margin-top:30px;
+background:#351c75;
+color:white;
+text-align:center;
+padding:15px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>UPS Smart Collections Platform</h1>
+<p>AI-Powered Credit Control & Collection Management</p>
+</header>
+
+<nav>
+<button onclick="showScreen('dashboard')">Dashboard</button>
+<button onclick="showScreen('customer')">Customer Account</button>
+<button onclick="showScreen('actions')">Collection Actions</button>
+<button onclick="showScreen('management')">Management Dashboard</button>
+</nav>
+
+<div class="container">
+
+<!-- DASHBOARD -->
+<div id="dashboard" class="screen active">
+<h2>Collections Dashboard</h2>
+
+<div class="card-grid">
+<div class="card">
+<h3>Total Outstanding Debt</h3>
+<div class="value">€1.25M</div>
+</div>
+
+<div class="card">
+<h3>High Risk Accounts</h3>
+<div class="value">18</div>
+</div>
+
+<div class="card">
+<h3>DSO</h3>
+<div class="value">42 Days</div>
+</div>
+
+<div class="card">
+<h3>Collected This Month</h3>
+<div class="value">€375K</div>
+</div>
+</div>
+</div>
+
+<!-- CUSTOMER -->
+<div id="customer" class="screen">
+<h2>Customer Account</h2>
+
+<div class="customer-box">
+<p><strong>Customer:</strong> ABC Manufacturing Ltd</p>
+<p><strong>Account Number:</strong> UPS001245</p>
+<p><strong>Outstanding Balance:</strong> €45,000</p>
+<p><strong>Last Payment:</strong> 15 September 2026</p>
+<p><strong>Days Overdue:</strong> 75</p>
+
+<p>AI Risk Score</p>
+<div class="risk">85 / 100</div>
+</div>
+</div>
+
+<!-- ACTIONS -->
+<div id="actions" class="screen">
+<h2>Collection Actions</h2>
+
+<div class="actions">
+<button onclick="alert('Payment Reminder Generated')">
+Send Reminder
+</button>
+
+<button onclick="alert('Payment Plan Created')">
+Create Payment Plan
+</button>
+
+<button onclick="alert('Account Escalated')">
+Escalate Account
+</button>
+
+<button onclick="alert('Collection Note Added')">
+Add Notes
+</button>
+</div>
+</div>
+
+<!-- MANAGEMENT -->
+<div id="management" class="screen">
+<h2>Management Dashboard</h2>
+
+<div class="chart">
+<h3>Collection Performance</h3>
+<br>
+
+<div class="bar bar1">
+Debt Recovered 75%
+</div>
+
+<div class="bar bar2">
+DSO Reduction 50%
+</div>
+
+<div class="bar bar3">
+High Risk Accounts Contacted 90%
+</div>
+</div>
+
+<div class="card-grid">
+<div class="card">
+<h3>Forecast Recovery</h3>
+<div class="value">€500K</div>
+</div>
+
+<div class="card">
+<h3>Collection Success Rate</h3>
+<div class="value">87%</div>
+</div>
+
+<div class="card">
+<h3>Collector Productivity</h3>
+<div class="value">+25%</div>
+</div>
+</div>
+
+</div>
+
+</div>
+
+<footer>
+UPS Smart Collections Platform Prototype | CA3 Technology Proposal
+</footer>
+
+<script>
+function showScreen(screenId){
+
+let screens=document.querySelectorAll('.screen');
+
+screens.forEach(function(screen){
+screen.classList.remove('active');
+});
+
+document.getElementById(screenId).classList.add('active');
+}
+</script>
+
+</body>
+</html>
